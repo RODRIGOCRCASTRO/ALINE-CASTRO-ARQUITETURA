@@ -7,9 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
-        .serif { font-family: 'Playfair+Display', serif; }
-        /* Garante que a imagem cubra 100% da tela sem bordas brancas */
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #000; }
+        .serif { font-family: 'Playfair Display', serif; }
         .full-bg {
             position: fixed;
             top: 0;
@@ -18,37 +17,28 @@
             height: 100vh;
             object-fit: cover;
             z-index: -1;
+            opacity: 0.6;
         }
     </style>
 </head>
-<body class="bg-black text-white overflow-x-hidden">
+<body class="text-white">
 
-    <img src="https://picture-search.skywork.ai/aippt/image/sheet/533c5a7daf5fb0e146da136b0ad51651_zimage.jpg" 
-         alt="Interior Design" 
-         class="full-bg opacity-70">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" 
+         alt="Arquitetura" class="full-bg">
 
-    <main class="relative z-10 min-h-screen flex flex-col justify-center px-8 md:px-24 py-12">
-        
-        <div class="max-w-2xl">
-            <span class="tracking-[0.3em] uppercase font-light text-gray-300 text-sm mb-2 block">Arquiteta</span>
+    <main class="relative z-10 min-h-screen flex flex-col justify-center px-8 md:px-24">
+        <div class="max-w-3xl">
+            <span class="tracking-[0.3em] uppercase font-light text-gray-300 text-xs mb-2 block">Arquiteta</span>
             <h1 class="serif text-6xl md:text-8xl font-bold leading-tight mb-4">Aline Castro</h1>
             
             <div class="w-20 h-1 bg-white mb-8"></div>
             
             <h2 class="text-3xl md:text-4xl font-light tracking-wide mb-4">Arquitetura Residencial</h2>
-            <p class="text-lg md:text-xl font-light italic text-gray-200 leading-relaxed mb-12">
+            <p class="text-lg md:text-xl font-light italic text-gray-200 mb-12 max-w-xl">
                 "A harmonia perfeita entre o charme do rústico brasileiro e a funcionalidade do design moderno."
             </p>
 
-            <div class="flex items-center space-x-4 text-xs md:text-sm tracking-[0.2em] uppercase text-gray-400 mb-12">
-                <span>Belo Horizonte - MG</span>
-                <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span>Projetos de Luxo</span>
-                <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span>2026</span>
-            </div>
-
-            <nav class="flex flex-wrap gap-6 text-sm tracking-[0.3em] uppercase border-t border-white/20 pt-8">
+            <nav class="flex flex-wrap gap-8 text-[10px] md:text-xs tracking-[0.4em] uppercase border-t border-white/30 pt-8">
                 <a href="index.html" class="hover:text-gray-400 transition">Início</a>
                 <a href="page_2.html" class="hover:text-gray-400 transition">Projetos</a>
                 <a href="page_3.html" class="hover:text-gray-400 transition">Metodologia</a>
