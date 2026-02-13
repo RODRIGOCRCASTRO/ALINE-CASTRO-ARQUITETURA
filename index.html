@@ -167,4 +167,25 @@
         function setLang(lang) {
             const pt = document.querySelectorAll('.lang-pt');
             const en = document.querySelectorAll('.lang-en');
-            const btnPt = document.getElementById('btn
+            const btnPt = document.getElementById('btn-pt');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'en') {
+                pt.forEach(el => el.style.display = 'none');
+                en.forEach(el => el.style.display = 'block');
+                btnEn.classList.add('text-white', 'border-b', 'border-white');
+                btnEn.classList.remove('text-gray-500');
+                btnPt.classList.remove('text-white', 'border-b', 'border-white');
+                btnPt.classList.add('text-gray-500');
+            } else {
+                en.forEach(el => el.style.display = 'none');
+                pt.forEach(el => el.style.display = 'block');
+                btnPt.classList.add('text-white', 'border-b', 'border-white');
+                btnPt.classList.remove('text-gray-500');
+                btnEn.classList.remove('text-white', 'border-b', 'border-white');
+                btnEn.classList.add('text-gray-500');
+            }
+        }
+    </script>
+</body>
+</html>
