@@ -6,34 +6,36 @@
     <title>Aline Castro | Architecture</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Importação correta das Fontes */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background-color: #000; color: white; margin: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: white; margin: 0; overflow-x: hidden; }
         .serif { font-family: 'Playfair Display', serif; }
         
-        /* Configuração da Imagem de Fundo */
         .full-bg { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100vh; 
-            object-fit: cover; 
-            z-index: -1; 
-            opacity: 0.5; /* Ajuste o brilho aqui */
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh; 
+            object-fit: cover; z-index: -1; opacity: 0.5; 
         }
 
-        section { min-height: 100vh; display: flex; align-items: center; padding: 4rem 1.5rem; position: relative; }
+        section { min-height: 100vh; display: flex; align-items: center; padding: 6rem 1.5rem; position: relative; }
         .lang-en { display: none; }
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
         
-        /* AJUSTE RESPONSIVO DO MENU */
-        nav { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        /* CORREÇÃO DO GLASS CARD */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 2px;
+        }
+
+        nav { backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
+
         @media (max-width: 640px) {
-            nav { padding: 1rem !important; flex-direction: column; gap: 0.75rem; }
-            .nav-links { gap: 1rem !important; justify-content: center; width: 100%; }
+            nav { padding: 1rem 0.5rem !important; flex-direction: column !important; gap: 0.5rem; }
+            .nav-links { gap: 0.75rem !important; justify-content: center; width: 100%; flex-wrap: wrap; }
             .lang-switcher { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem; width: 100%; justify-content: center; }
+            section { padding-top: 8rem; }
+            h1 { font-size: 3rem !important; }
         }
     </style>
 </head>
@@ -42,20 +44,19 @@
     <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="full-bg" alt="Fundo">
 
     <nav class="fixed top-0 w-full z-50 flex flex-row justify-between items-center p-6 bg-black/60 px-8 md:px-24">
-    <div class="nav-links flex gap-4 md:gap-6 text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.4em] uppercase flex-wrap justify-center">
-        <a href="#inicio" class="hover:text-gray-400">Home</a>
-        <a href="#portfolio" class="hover:text-gray-400">Portfólio</a>
-        <a href="#sobre" class="hover:text-gray-400">Sobre</a>
-        <a href="#servicos" class="hover:text-gray-400">Serviços</a>
-        <a href="#metodologia" class="hover:text-gray-400">Metodologia</a>
-        <a href="#contato" class="hover:text-gray-400">Contato</a>
-    </div>
-    
-    <div class="lang-switcher flex gap-4 text-[10px] font-bold tracking-widest pt-2 md:pt-0">
-        <button onclick="setLang('pt')" id="btn-pt" class="text-white border-b border-white">PT</button>
-        <button onclick="setLang('en')" id="btn-en" class="text-gray-500">EN</button>
-    </div>
-</nav>
+        <div class="nav-links flex gap-4 md:gap-6 text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.4em] uppercase flex-wrap justify-center font-light">
+            <a href="#inicio" class="hover:text-gray-400 transition">Home</a>
+            <a href="#portfolio" class="hover:text-gray-400 transition">Portfólio</a>
+            <a href="#sobre" class="hover:text-gray-400 transition">Sobre</a>
+            <a href="#servicos" class="hover:text-gray-400 transition">Serviços</a>
+            <a href="#metodologia" class="hover:text-gray-400 transition">Metodologia</a>
+            <a href="#contato" class="hover:text-gray-400 transition">Contato</a>
+        </div>
+        <div class="lang-switcher flex gap-4 text-[10px] font-bold tracking-widest pt-2 md:pt-0">
+            <button onclick="setLang('pt')" id="btn-pt" class="text-white border-b border-white">PT</button>
+            <button onclick="setLang('en')" id="btn-en" class="text-gray-500">EN</button>
+        </div>
+    </nav>
 
     <section id="inicio" class="md:px-24">
         <div class="max-w-3xl">
@@ -76,7 +77,6 @@
         <div class="w-full max-w-6xl">
             <h2 class="serif text-5xl mb-12 lang-pt">Portfólio</h2>
             <h2 class="serif text-5xl mb-12 lang-en">Portfolio</h2>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="glass-card p-6 h-64 flex flex-col justify-end group hover:bg-white/10 transition cursor-pointer">
                     <span class="text-xs tracking-widest opacity-50 mb-2">01</span>
@@ -95,72 +95,67 @@
     </section>
 
     <section id="sobre" class="md:px-24 bg-white/5">
-    <div class="max-w-4xl">
-        <h2 class="serif text-5xl mb-8 lang-pt">Sobre</h2>
-        <h2 class="serif text-5xl mb-8 lang-en">About</h2>
-        
-        <div class="grid md:grid-cols-2 gap-12">
-            <div class="lang-pt text-gray-300 leading-relaxed text-lg font-light">
-                Com um olhar atento à <span class="text-white font-medium">arquitetura afetiva</span>, Aline Castro cria projetos que narram histórias. Especialista em unir texturas naturais e design contemporâneo, sua missão é transformar residências em refúgios de bem-estar, onde cada detalhe reflete a identidade de quem os habita.
-            </div>
-            <div class="lang-en text-gray-300 leading-relaxed text-lg font-light">
-                With a keen eye for <span class="text-white font-medium">affective architecture</span>, Aline Castro creates projects that tell stories. An expert in blending natural textures with contemporary design, her mission is to transform residences into havens of well-being, where every detail reflects the inhabitant's identity.
+        <div class="max-w-4xl">
+            <h2 class="serif text-5xl mb-8 lang-pt">Sobre</h2>
+            <h2 class="serif text-5xl mb-8 lang-en">About</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="lang-pt text-gray-300 leading-relaxed text-lg font-light">
+                    Com um olhar atento à <span class="text-white font-medium">arquitetura afetiva</span>, Aline Castro cria projetos que narram histórias. Especialista em unir texturas naturais e design contemporâneo.
+                </div>
+                <div class="lang-en text-gray-300 leading-relaxed text-lg font-light">
+                    With a keen eye for <span class="text-white font-medium">affective architecture</span>, Aline Castro creates projects that tell stories. Expert in blending natural textures with contemporary design.
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="servicos" class="md:px-24 bg-black/40">
-    <div class="w-full max-w-6xl">
-        <h2 class="serif text-5xl mb-12 lang-pt">O que fazemos</h2>
-        <h2 class="serif text-5xl mb-12 lang-en">What we do</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-card p-8 hover:bg-white/5 transition">
-                <h3 class="serif text-2xl mb-4 lang-pt">Projetos Residenciais</h3>
-                <h3 class="serif text-2xl mb-4 lang-en">Residential Projects</h3>
-                <p class="text-sm text-gray-400 font-light lang-pt">Criação completa de arquitetura do zero, do conceito à entrega.</p>
-                <p class="text-sm text-gray-400 font-light lang-en">Complete architectural design from scratch, from concept to delivery.</p>
-            </div>
-            <div class="glass-card p-8 hover:bg-white/5 transition">
-                <h3 class="serif text-2xl mb-4 lang-pt">Retrofit & Reforma</h3>
-                <h3 class="serif text-2xl mb-4 lang-en">Retrofit & Renovation</h3>
-                <p class="text-sm text-gray-400 font-light lang-pt">Revitalização de espaços antigos preservando sua essência histórica.</p>
-                <p class="text-sm text-gray-400 font-light lang-en">Revitalizing old spaces while preserving their historical essence.</p>
-            </div>
-            <div class="glass-card p-8 hover:bg-white/5 transition">
-                <h3 class="serif text-2xl mb-4 lang-pt">Design de Interiores</h3>
-                <h3 class="serif text-2xl mb-4 lang-en">Interior Design</h3>
-                <p class="text-sm text-gray-400 font-light lang-pt">Curadoria de mobiliário e acabamentos que trazem aconchego e luxo.</p>
-                <p class="text-sm text-gray-400 font-light lang-en">Curation of furniture and finishes that bring warmth and luxury.</p>
+    <section id="servicos" class="md:px-24 bg-black/40">
+        <div class="w-full max-w-6xl">
+            <h2 class="serif text-5xl mb-12 lang-pt">O que fazemos</h2>
+            <h2 class="serif text-5xl mb-12 lang-en">What we do</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 hover:bg-white/10 transition">
+                    <h3 class="serif text-2xl mb-4 lang-pt">Projetos Residenciais</h3>
+                    <h3 class="serif text-2xl mb-4 lang-en">Residential Projects</h3>
+                    <p class="text-sm text-gray-400 font-light lang-pt">Criação completa de arquitetura do zero.</p>
+                    <p class="text-sm text-gray-400 font-light lang-en">Complete architectural design from scratch.</p>
+                </div>
+                <div class="glass-card p-8 hover:bg-white/10 transition">
+                    <h3 class="serif text-2xl mb-4 lang-pt">Retrofit & Reforma</h3>
+                    <h3 class="serif text-2xl mb-4 lang-en">Retrofit & Renovation</h3>
+                    <p class="text-sm text-gray-400 font-light lang-pt">Revitalização de espaços preservando a essência.</p>
+                    <p class="text-sm text-gray-400 font-light lang-en">Revitalizing spaces while preserving the essence.</p>
+                </div>
+                <div class="glass-card p-8 hover:bg-white/10 transition">
+                    <h3 class="serif text-2xl mb-4 lang-pt">Design de Interiores</h3>
+                    <h3 class="serif text-2xl mb-4 lang-en">Interior Design</h3>
+                    <p class="text-sm text-gray-400 font-light lang-pt">Curadoria de mobiliário e acabamentos.</p>
+                    <p class="text-sm text-gray-400 font-light lang-en">Curation of furniture and finishes.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="metodologia" class="md:px-24">
-    <div class="max-w-4xl border-l border-white/20 pl-12">
-        <h2 class="serif text-4xl mb-6 lang-pt italic font-light">"A arquitetura deve ser sentida, não apenas vista."</h2>
-        <h2 class="serif text-4xl mb-6 lang-en italic font-light">"Architecture should be felt, not just seen."</h2>
-        
-        <div class="lang-pt text-gray-400 text-lg font-light leading-relaxed">
-            Nossa metodologia foca na <span class="text-white">conexão humana</span>. Através de um processo colaborativo, utilizamos ferramentas de visualização 3D avançadas para que você vivencie sua futura casa antes mesmo da primeira pedra ser colocada.
+        <div class="max-w-4xl border-l border-white/20 pl-12">
+            <h2 class="serif text-4xl mb-6 lang-pt italic font-light italic">"A arquitetura deve ser sentida, não apenas vista."</h2>
+            <h2 class="serif text-4xl mb-6 lang-en italic font-light italic">"Architecture should be felt, not just seen."</h2>
+            <div class="lang-pt text-gray-400 text-lg font-light leading-relaxed">
+                Nossa metodologia foca na conexão humana e no uso de ferramentas 3D avançadas.
+            </div>
+            <div class="lang-en text-gray-400 text-lg font-light leading-relaxed">
+                Our methodology focuses on human connection and the use of advanced 3D tools.
+            </div>
         </div>
-        <div class="lang-en text-gray-400 text-lg font-light leading-relaxed">
-            Our methodology focuses on <span class="text-white">human connection</span>. Through a collaborative process, we use advanced 3D visualization tools so you can experience your future home before the first stone is laid.
-        </div>
-    </div>
-</section>
+    </section>
 
     <section id="contato" class="md:px-24 flex-col justify-center text-center bg-black/60">
         <h2 class="serif text-5xl mb-12 lang-pt">Vamos conversar?</h2>
         <h2 class="serif text-5xl mb-12 lang-en">Let's talk?</h2>
-        
         <div class="mb-12">
             <p class="text-2xl font-light tracking-widest mb-2">aline@alinecastro.arq.br</p>
             <p class="text-xs tracking-[0.4em] uppercase text-gray-500">Belo Horizonte, MG</p>
         </div>
-
         <a href="mailto:aline@alinecastro.arq.br" 
            class="inline-block px-12 py-5 border border-white hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-[0.4em] text-[10px] font-bold">
             <span class="lang-pt">Enviar Mensagem</span>
@@ -172,25 +167,4 @@
         function setLang(lang) {
             const pt = document.querySelectorAll('.lang-pt');
             const en = document.querySelectorAll('.lang-en');
-            const btnPt = document.getElementById('btn-pt');
-            const btnEn = document.getElementById('btn-en');
-
-            if (lang === 'en') {
-                pt.forEach(el => el.style.display = 'none');
-                en.forEach(el => el.style.display = 'block');
-                btnEn.classList.add('text-white', 'border-b', 'border-white');
-                btnEn.classList.remove('text-gray-500');
-                btnPt.classList.remove('text-white', 'border-b', 'border-white');
-                btnPt.classList.add('text-gray-500');
-            } else {
-                en.forEach(el => el.style.display = 'none');
-                pt.forEach(el => el.style.display = 'block');
-                btnPt.classList.add('text-white', 'border-b', 'border-white');
-                btnPt.classList.remove('text-gray-500');
-                btnEn.classList.remove('text-white', 'border-b', 'border-white');
-                btnEn.classList.add('text-gray-500');
-            }
-        }
-    </script>
-</body>
-</html>
+            const btnPt = document.getElementById('btn
