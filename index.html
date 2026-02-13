@@ -1,71 +1,61 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script><style>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aline Castro | Arquitetura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
-        
-        body {overflow: hidden; width: 1280px; height: 720px; margin: 0;
-            padding: 0;
-            
-            background-color: #f4f1ee;}
-        .slide-container {
-            width: 1280px;
-            height: 720px;
-            position: relative;
-            
-            font-family: 'Inter', sans-serif;
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        .serif { font-family: 'Playfair+Display', serif; }
+        /* Garante que a imagem cubra 100% da tela sem bordas brancas */
+        .full-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
         }
-        .serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .overlay {
-            background: linear-gradient(90deg, rgba(30, 27, 24, 0.8) 0%, rgba(30, 27, 24, 0.4) 50%, rgba(30, 27, 24, 0) 100%);
-        }
-    
-html {
-    overflow: hidden;
-}</style>
+    </style>
 </head>
-<body>
-<div class="slide-container flex items-center" style="min-height: 100vh; width: 100%; overflow-x: hidden;">
-<!-- Background Image -->
-<div class="absolute inset-0 z-0">
-<img alt="Interior Design" class="w-full h-full object-cover" src="https://picture-search.skywork.ai/aippt/image/sheet/533c5a7daf5fb0e146da136b0ad51651_zimage.jpg"/>
-</div>
-<!-- Content Overlay -->
-<div class="absolute inset-0 z-10 overlay"></div>
-<!-- Main Content -->
-<div class="relative z-20 ml-24 max-w-2xl text-white">
-<div class="mb-6 flex flex-col">
-<span class="text-xl tracking-[0.3em] uppercase font-light mb-2 text-gray-300">Arquiteta</span>
-<h1 class="serif text-8xl font-bold leading-tight">Aline Castro</h1>
-</div>
-<div class="w-20 h-1 bg-white mb-8"></div>
-<h2 class="text-4xl font-light tracking-wide mb-4">Arquitetura Residencial</h2>
-<p class="text-xl font-light italic serif text-gray-200 leading-relaxed mb-12">
-                &#34;A harmonia perfeita entre o charme do rústico brasileiro <br/> e a funcionalidade do design moderno.&#34;
+<body class="bg-black text-white overflow-x-hidden">
+
+    <img src="https://picture-search.skywork.ai/aippt/image/sheet/533c5a7daf5fb0e146da136b0ad51651_zimage.jpg" 
+         alt="Interior Design" 
+         class="full-bg opacity-70">
+
+    <main class="relative z-10 min-h-screen flex flex-col justify-center px-8 md:px-24 py-12">
+        
+        <div class="max-w-2xl">
+            <span class="tracking-[0.3em] uppercase font-light text-gray-300 text-sm mb-2 block">Arquiteta</span>
+            <h1 class="serif text-6xl md:text-8xl font-bold leading-tight mb-4">Aline Castro</h1>
+            
+            <div class="w-20 h-1 bg-white mb-8"></div>
+            
+            <h2 class="text-3xl md:text-4xl font-light tracking-wide mb-4">Arquitetura Residencial</h2>
+            <p class="text-lg md:text-xl font-light italic text-gray-200 leading-relaxed mb-12">
+                "A harmonia perfeita entre o charme do rústico brasileiro e a funcionalidade do design moderno."
             </p>
-<div class="flex items-center space-x-6 text-sm tracking-[0.2em] uppercase text-gray-400">
-<span>Belo Horizonte - MG</span>
-<span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-<span>Projetos de Luxo</span>
-<span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-<span>2026</span>
-</div>
-</div>
-<!-- Subtle Right Accent -->
-<div class="absolute bottom-12 right-12 z-20 text-white text-right">
-<p class="text-xs tracking-[0.4em] uppercase opacity-60">Portfólio &amp; Metodologia</p>
-     <div class="relative z-30 mt-8 flex space-x-6 text-white uppercase tracking-widest text-sm">
-    <a href="page_2.html" class="hover:underline">Projetos</a>
-    <a href="page_3.html" class="hover:underline">Metodologia</a>
-    <a href="page_4.html" class="hover:underline">Contato</a>
-</div>   
-</div>
-</div>
 
-</body></html>
+            <div class="flex items-center space-x-4 text-xs md:text-sm tracking-[0.2em] uppercase text-gray-400 mb-12">
+                <span>Belo Horizonte - MG</span>
+                <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+                <span>Projetos de Luxo</span>
+                <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+                <span>2026</span>
+            </div>
 
+            <nav class="flex flex-wrap gap-6 text-sm tracking-[0.3em] uppercase border-t border-white/20 pt-8">
+                <a href="index.html" class="hover:text-gray-400 transition">Início</a>
+                <a href="page_2.html" class="hover:text-gray-400 transition">Projetos</a>
+                <a href="page_3.html" class="hover:text-gray-400 transition">Metodologia</a>
+                <a href="page_4.html" class="hover:text-gray-400 transition">Contato</a>
+            </nav>
+        </div>
+    </main>
+
+</body>
+</html>
