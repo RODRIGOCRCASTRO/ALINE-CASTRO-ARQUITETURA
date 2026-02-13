@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +17,9 @@
             height: 100vh;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.6;
+            opacity: 0.5;
         }
+        section { min-height: 100vh; display: flex; align-items: center; position: relative; }
     </style>
 </head>
 <body class="text-white">
@@ -26,26 +27,53 @@
     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" 
          alt="Arquitetura" class="full-bg">
 
-    <main class="relative z-10 min-h-screen flex flex-col justify-center px-8 md:px-24">
+    <nav class="fixed top-0 w-full z-50 flex justify-center p-6 bg-black/20 backdrop-blur-sm">
+        <div class="flex gap-8 text-[10px] tracking-[0.4em] uppercase">
+            <a href="#inicio" class="hover:text-gray-400 transition">Início</a>
+            <a href="#projetos" class="hover:text-gray-400 transition">Projetos</a>
+            <a href="#metodologia" class="hover:text-gray-400 transition">Metodologia</a>
+            <a href="#contato" class="hover:text-gray-400 transition">Contato</a>
+        </div>
+    </nav>
+
+    <section id="inicio" class="px-8 md:px-24">
         <div class="max-w-3xl">
             <span class="tracking-[0.3em] uppercase font-light text-gray-300 text-xs mb-2 block">Arquiteta</span>
             <h1 class="serif text-6xl md:text-8xl font-bold leading-tight mb-4">Aline Castro</h1>
-            
             <div class="w-20 h-1 bg-white mb-8"></div>
-            
             <h2 class="text-3xl md:text-4xl font-light tracking-wide mb-4">Arquitetura Residencial</h2>
-            <p class="text-lg md:text-xl font-light italic text-gray-200 mb-12 max-w-xl">
-                "A harmonia perfeita entre o charme do rústico brasileiro e a funcionalidade do design moderno."
+            <p class="text-lg md:text-xl font-light italic text-gray-200">
+                "A harmonia perfeita entre o rústico e o moderno."
             </p>
-
-            <nav class="flex flex-wrap gap-8 text-[10px] md:text-xs tracking-[0.4em] uppercase border-t border-white/30 pt-8">
-                <a href="index.html" class="hover:text-gray-400 transition">Início</a>
-                <a href="page_2.html" class="hover:text-gray-400 transition">Projetos</a>
-                <a href="page_3.html" class="hover:text-gray-400 transition">Metodologia</a>
-                <a href="page_4.html" class="hover:text-gray-400 transition">Contato</a>
-            </nav>
         </div>
-    </main>
+    </section>
+
+    <section id="projetos" class="px-8 md:px-24 bg-black/40">
+        <div class="max-w-4xl w-full">
+            <h2 class="serif text-5xl mb-12">Projetos Selecionados</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="h-64 bg-gray-800 flex items-center justify-center border border-white/10">Projeto 01</div>
+                <div class="h-64 bg-gray-800 flex items-center justify-center border border-white/10">Projeto 02</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metodologia" class="px-8 md:px-24">
+        <div class="max-w-2xl">
+            <h2 class="serif text-5xl mb-8">Metodologia</h2>
+            <p class="text-gray-300 leading-relaxed text-lg">
+                Nossa abordagem une técnicas tradicionais de retrofit com as tecnologias mais modernas de sustentabilidade e design.
+            </p>
+        </div>
+    </section>
+
+    <section id="contato" class="px-8 md:px-24 bg-black/60">
+        <div class="max-w-2xl text-center mx-auto">
+            <h2 class="serif text-5xl mb-8">Vamos Conversar?</h2>
+            <p class="text-xl mb-8">contato@alinecastro.com.br</p>
+            <a href="mailto:contato@alinecastro.com.br" class="px-8 py-4 border border-white hover:bg-white hover:text-black transition uppercase tracking-widest">Enviar Mensagem</a>
+        </div>
+    </section>
 
 </body>
 </html>
