@@ -3,81 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aline Castro | Arquitetura</title>
+    <title>Aline Castro | Architecture</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: #000; }
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: white; margin: 0; }
         .serif { font-family: 'Playfair Display', serif; }
-        .full-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -1;
-            opacity: 0.5;
-        }
-        section { min-height: 100vh; display: flex; align-items: center; position: relative; }
+        .full-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; object-fit: cover; z-index: -1; opacity: 0.5; }
+        section { min-height: 100vh; display: flex; align-items: center; padding: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .lang-en { display: none; } /* Esconde o inglês por padrão */
     </style>
 </head>
-<body class="text-white">
+<body>
 
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" 
-         alt="Arquitetura" class="full-bg">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070" class="full-bg">
 
-    <nav class="fixed top-0 w-full z-50 flex justify-center p-6 bg-black/20 backdrop-blur-sm">
-        <div class="flex gap-8 text-[10px] tracking-[0.4em] uppercase">
-            <a href="#inicio" class="hover:text-gray-400 transition">Início</a>
-            <a href="#projetos" class="hover:text-gray-400 transition">Projetos</a>
-            <a href="#metodologia" class="hover:text-gray-400 transition">Metodologia</a>
-            <a href="#contato" class="hover:text-gray-400 transition">Contato</a>
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center p-6 bg-black/40 backdrop-blur-md px-8 md:px-24">
+        <div class="flex gap-6 text-[10px] tracking-[0.3em] uppercase">
+            <a href="#inicio" class="hover:text-gray-400">Início</a>
+            <a href="#metodologia" class="hover:text-gray-400">Metodologia</a>
+            <a href="#contato" class="hover:text-gray-400">Contato</a>
+        </div>
+        
+        <div class="flex gap-4 text-[10px] font-bold tracking-widest">
+            <button onclick="setLang('pt')" id="btn-pt" class="text-white border-b border-white">PT</button>
+            <button onclick="setLang('en')" id="btn-en" class="text-gray-500">EN</button>
         </div>
     </nav>
 
-    <section id="inicio" class="px-8 md:px-24">
+    <section id="inicio" class="md:px-24">
         <div class="max-w-3xl">
-            <span class="tracking-[0.3em] uppercase font-light text-gray-300 text-xs mb-2 block">Arquiteta</span>
+            <span class="tracking-[0.3em] uppercase font-light text-gray-400 text-xs mb-2 block lang-pt">Arquiteta</span>
+            <span class="tracking-[0.3em] uppercase font-light text-gray-400 text-xs mb-2 block lang-en">Architect</span>
+            
             <h1 class="serif text-6xl md:text-8xl font-bold leading-tight mb-4">Aline Castro</h1>
             <div class="w-20 h-1 bg-white mb-8"></div>
-            <h2 class="text-3xl md:text-4xl font-light tracking-wide mb-4">Arquitetura Residencial</h2>
-            <p class="text-lg md:text-xl font-light italic text-gray-200">
-                "A harmonia perfeita entre o rústico e o moderno."
-            </p>
-        </div>
-    </section>
-
-    <section id="projetos" class="px-8 md:px-24 bg-black/40">
-        <div class="max-w-4xl w-full">
-            <h2 class="serif text-5xl mb-12">Projetos Selecionados</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="h-64 bg-gray-800 flex items-center justify-center border border-white/10">Projeto 01</div>
-                <div class="h-64 bg-gray-800 flex items-center justify-center border border-white/10">Projeto 02</div>
+            
+            <div class="lang-pt">
+                <h2 class="text-3xl md:text-4xl font-light tracking-wide mb-4">Arquitetura Residencial</h2>
+                <p class="text-lg md:text-xl font-light italic text-gray-200">"A harmonia perfeita entre o charme do rústico brasileiro e a funcionalidade do design moderno."</p>
+            </div>
+            <div class="lang-en">
+                <h2 class="text-3xl md:text-4xl font-light tracking-wide mb-4">Residential Architecture</h2>
+                <p class="text-lg md:text-xl font-light italic text-gray-200">"The perfect harmony between Brazilian rustic charm and the functionality of modern design."</p>
             </div>
         </div>
     </section>
 
-    <section id="metodologia" class="px-8 md:px-24">
-        <div class="max-w-2xl">
-            <h2 class="serif text-5xl mb-8">Metodologia</h2>
-            <p class="text-gray-300 leading-relaxed text-lg">
-                Nossa abordagem une técnicas tradicionais de retrofit com as tecnologias mais modernas de sustentabilidade e design.
-                </p>
-<p class="text-gray-300 leading-relaxed text-lg">
-                ENGLISH
-                "Aline Castro is a Brazilian architect specializing in residential retrofitting. Her signature style masterfully blends rustic textures with modern architectural concepts, breathing new life into existing structures while maintaining a contemporary edge."
-            </p>
+    <section id="metodologia" class="md:px-24 bg-black/30">
+        <div class="max-w-4xl">
+            <h2 class="serif text-5xl mb-12 lang-pt">Metodologia</h2>
+            <h2 class="serif text-5xl mb-12 lang-en">Methodology</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 text-gray-300 leading-relaxed text-lg font-light">
+                <div class="lang-pt">
+                    Nossa abordagem une técnicas tradicionais de retrofit com as tecnologias mais modernas de sustentabilidade e design, preservando a essência e inovando no conforto.
+                </div>
+                <div class="lang-en">
+                    Our approach combines traditional retrofitting techniques with the most modern sustainability and design technologies, preserving essence while innovating in comfort.
+                </div>
+                <div class="lang-pt italic border-l border-white/20 pl-6">
+                    "Aline Castro é uma arquiteta brasileira especializada em retrofit residencial, misturando elementos rústicos com conceitos modernos."
+                </div>
+                <div class="lang-en italic border-l border-white/20 pl-6">
+                    "Aline Castro is a Brazilian architect specializing in residential retrofitting, blending rustic textures with modern architectural concepts."
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="contato" class="px-8 md:px-24 bg-black/60">
-        <div class="max-w-2xl text-center mx-auto">
-            <h2 class="serif text-5xl mb-8">Vamos Conversar?</h2>
-            <p class="text-xl mb-8">aline@alinecastro.arq.br</p>
-            <a href="mailto:contato@alinecastro.com.br" class="px-8 py-4 border border-white hover:bg-white hover:text-black transition uppercase tracking-widest">Enviar Mensagem</a>
+    <section id="contato" class="md:px-24 justify-center text-center">
+        <div>
+            <h2 class="serif text-5xl mb-8 lang-pt">Contato</h2>
+            <h2 class="serif text-5xl mb-8 lang-en">Contact</h2>
+            
+            <p class="text-xl mb-12 tracking-widest font-light">contato@alinecastro.arq.br</p>
+            
+            <a href="mailto:contato@alinecastro.arq.br" class="px-12 py-5 border border-white hover:bg-white hover:text-black transition uppercase tracking-[0.3em] text-xs">
+                <span class="lang-pt">Enviar Mensagem</span>
+                <span class="lang-en">Send Message</span>
+            </a>
         </div>
     </section>
 
+    <script>
+        function setLang(lang) {
+            const ptElements = document.querySelectorAll('.lang-pt');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btnPt = document.getElementById('btn-pt');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'en') {
+                ptElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                btnEn.classList.add('text-white', 'border-b', 'border-white');
+                btnEn.classList.remove('text-gray-500');
+                btnPt.classList.remove('text-white', 'border-b', 'border-white');
+                btnPt.classList.add('text-gray-500');
+            } else {
+                enElements.forEach(el => el.style.display = 'none');
+                ptElements.forEach(el => el.style.display = 'block');
+                btnPt.classList.add('text-white', 'border-b', 'border-white');
+                btnPt.classList.remove('text-gray-500');
+                btnEn.classList.remove('text-white', 'border-b', 'border-white');
+                btnEn.classList.add('text-gray-500');
+            }
+        }
+    </script>
 </body>
 </html>
