@@ -175,14 +175,19 @@
         <h2 class="serif text-5xl mb-12 lang-pt">Vamos conversar?</h2>
         <h2 class="serif text-5xl mb-12 lang-en">Let's talk?</h2>
         
-        <div class="mb-12">
-            <p class="text-2xl font-light tracking-widest mb-2">aline@alinecastro.arq.br</p>
+        <div class="mb-12 flex flex-col items-center gap-4">
+            <div class="flex items-center gap-3">
+                <i data-lucide="mail" class="w-5 h-5 text-gray-400"></i>
+                <p class="text-xl md:text-2xl font-light tracking-widest">aline@alinecastro.arq.br</p>
+            </div>
             
-            <a href="https://www.instagram.com/alinecastro_arquitetura" target="_blank" class="block text-sm tracking-[0.3em] uppercase text-gray-300 hover:text-white transition-colors duration-300 mb-2">
+            <a href="https://www.instagram.com/alinecastro_arquitetura" target="_blank" 
+               class="flex items-center gap-3 text-sm tracking-[0.3em] uppercase text-gray-300 hover:text-white transition-colors duration-300">
+                <i data-lucide="instagram" class="w-4 h-4"></i>
                 @alinecastro_arquitetura
             </a>
             
-            <p class="text-xs tracking-[0.4em] uppercase text-gray-500">Belo Horizonte, MG</p>
+            <p class="text-xs tracking-[0.4em] uppercase text-gray-500 mt-2">Belo Horizonte, MG</p>
         </div>
         
         <a href="mailto:aline@alinecastro.arq.br" 
@@ -191,6 +196,35 @@
             <span class="lang-en">Send Message</span>
         </a>
     </section>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Inicializa os ícones
+        lucide.createIcons();
+
+        function setLang(lang) {
+            const pt = document.querySelectorAll('.lang-pt');
+            const en = document.querySelectorAll('.lang-en');
+            const btnPt = document.getElementById('btn-pt');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'en') {
+                pt.forEach(el => el.style.display = 'none');
+                en.forEach(el => el.style.display = 'block');
+                btnEn.classList.add('text-white', 'border-b', 'border-white');
+                btnEn.classList.remove('text-gray-500');
+                btnPt.classList.remove('text-white', 'border-b', 'border-white');
+                btnPt.classList.add('text-gray-500');
+            } else {
+                en.forEach(el => el.style.display = 'none');
+                pt.forEach(el => el.style.display = 'block');
+                btnPt.classList.add('text-white', 'border-b', 'border-white');
+                btnPt.classList.remove('text-gray-500');
+                btnEn.classList.remove('text-white', 'border-b', 'border-white');
+                btnEn.classList.add('text-gray-500');
+            }
+        }
+    </script>
 
     <script>
         function setLang(lang) {
