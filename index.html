@@ -9,12 +9,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap');
         
         body { font-family: 'Inter', sans-serif; background-color: #000; color: white; margin: 0; overflow-x: hidden; }
-        /* No seu <style> */
-.serif { 
-    font-family: 'Cormorant Garamond', serif; 
-    text-transform: uppercase; /* Opcional: nomes em caixa alta ficam muito elegantes */
-    letter-spacing: 0.1em;      /* Opcional: um leve espaçamento entre letras */
-}
+        
+        .serif { 
+            font-family: 'Cormorant Garamond', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em;      
+        }
         
         .full-bg { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh; 
@@ -24,7 +24,6 @@
         section { min-height: 100vh; display: flex; align-items: center; padding: 6rem 1.5rem; position: relative; }
         .lang-en { display: none; }
         
-        /* CORREÇÃO DO GLASS CARD */
         .glass-card { 
             background: rgba(255, 255, 255, 0.05); 
             backdrop-filter: blur(10px); 
@@ -63,10 +62,8 @@
     </nav>
 
     <section id="inicio" class="md:px-24">
-    <div class="max-w-3xl">
-        <h1 class="serif text-6xl md:text-8xl font-light tracking-wide leading-tight mb-4 uppercase">
-    Aline Castro
-</h1>
+        <div class="max-w-3xl">
+            <h1 class="serif text-6xl md:text-8xl font-light tracking-wide leading-tight mb-4 uppercase">Aline Castro</h1>
             <div class="w-20 h-1 bg-white mb-8"></div>
             <div class="lang-pt">
                 <h2 class="text-3xl md:text-4xl font-light tracking-wide mb-4">Arquitetura Residencial</h2>
@@ -79,86 +76,47 @@
         </div>
     </section>
 
-    <section id="portfolio" class="md:px-24 bg-black/60 py-24 flex-col justify-center text-center">
-    <div class="max-w-6xl mx-auto w-full">
-        <h2 class="serif text-5xl mb-16 lang-pt text-white">Portfólio</h2>
-        <h2 class="serif text-5xl mb-16 lang-en text-white">Portfolio</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <section id="sobre" class="md:px-24 bg-white/5 py-20">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="serif text-4xl mb-12 lang-pt text-white/90">Sobre</h2>
+            <h2 class="serif text-4xl mb-12 lang-en text-white/90">About</h2>
             
-            <div class="group">
-                <div class="p-3 glass-card shadow-2xl transition-all duration-500 group-hover:border-white/40">
-                    <div class="overflow-hidden aspect-video bg-gray-900">
-                        <img src="PROJETO_1.jpg" alt="Projeto 01" 
-                             class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 block scale-105 group-hover:scale-100">
+            <div class="flex flex-col md:flex-row gap-16 items-center md:items-start">
+                <div class="w-1/2 md:w-1/4 group">
+                    <div class="p-1.5 bg-white/10 border border-white/20 shadow-xl transition-all duration-500 group-hover:border-white/40">
+                        <div class="overflow-hidden aspect-[3/4]">
+                            <img src="ALINE_CASTRO.png" alt="Aline Castro" 
+                                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 block">
+                        </div>
                     </div>
-                </div>
-                <div class="mt-6 flex justify-between items-baseline px-2">
-                    <h3 class="serif text-xl text-gray-200 tracking-wider">Residência Vale do Sol</h3>
-                    <span class="text-[10px] tracking-widest uppercase text-gray-500">2023</span>
-                </div>
-            </div>
-
-            <div class="group">
-                <div class="p-3 glass-card shadow-2xl transition-all duration-500 group-hover:border-white/40">
-                    <div class="overflow-hidden aspect-video bg-gray-900">
-                        <img src="PROJETO_2.jpg" alt="Projeto 02" 
-                             class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 block scale-105 group-hover:scale-100">
-                    </div>
-                </div>
-                <div class="mt-6 flex justify-between items-baseline px-2">
-                    <h3 class="serif text-xl text-gray-200 tracking-wider">Apartamento Retrofit</h3>
-                    <span class="text-[10px] tracking-widest uppercase text-gray-500">2024</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-         Aline Castro is a Brazilian architect specializing in residential retrofitting. 
-                 <section id="sobre" class="md:px-24 bg-white/5 py-20">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="serif text-4xl mb-12 lang-pt text-white/90">Sobre</h2>
-        <h2 class="serif text-4xl mb-12 lang-en text-white/90">About</h2>
-        
-        <div class="flex flex-col md:flex-row gap-16 items-start">
-            
-            <div class="w-full md:w-1/10 group">
-                <div class="p-1.5 bg-white/10 border border-white/20 shadow-xl transition-all duration-500 group-hover:border-white/40">
-                    <div class="overflow-hidden aspect-[3/4]">
-                        <img src="ALINE_CASTRO.png" alt="Aline Castro" 
-                             class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 block">
-                    </div>
-                </div>
-                <p class="text-[9px] tracking-[0.3em] uppercase mt-3 text-gray-500 font-light">Architect</p>
-            </div>
-            
-            <div class="w-full md:w-4/5 pt-2">
-                <div class="lang-pt text-gray-300 leading-relaxed text-lg font-light space-y-6">
-                    <p class="border-l border-white/10 pl-10">
-                        Aline Castro é uma arquiteta brasileira especializada em retrofit residencial. 
-                        Seu estilo autoral combina texturas rústicas com conceitos arquitetônicos modernos, 
-                        dando nova vida a estruturas existentes enquanto mantém uma identidade contemporânea.
-                    </p>
+                    <p class="text-[9px] tracking-[0.3em] uppercase mt-3 text-gray-500 font-light text-center md:text-left">Architect</p>
                 </div>
                 
-                <div class="lang-en text-gray-300 leading-relaxed text-lg font-light space-y-6">
-                    <p class="border-l border-white/10 pl-10">
-                          Her signature style masterfully blends rustic textures with modern architectural concepts, 
-                        breathing new life into existing structures while maintaining a contemporary edge.
-                    </p>
+                <div class="w-full md:w-3/4 pt-2">
+                    <div class="lang-pt text-gray-300 leading-relaxed text-lg font-light space-y-6">
+                        <p class="border-l border-white/10 pl-10">
+                            Aline Castro é uma arquiteta brasileira especializada em retrofit residencial. 
+                            Seu estilo autoral combina texturas rústicas com conceitos arquitetônicos modernos, 
+                            dando nova vida a estruturas existentes enquanto mantém uma identidade contemporânea.
+                        </p>
+                    </div>
+                    
+                    <div class="lang-en text-gray-300 leading-relaxed text-lg font-light space-y-6">
+                        <p class="border-l border-white/10 pl-10">
+                             Aline Castro is a Brazilian architect specializing in residential retrofitting. 
+                             Her signature style masterfully blends rustic textures with modern architectural concepts, 
+                             breathing new life into existing structures while maintaining a contemporary edge.
+                        </p>
+                    </div>
                 </div>
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="metodologia" class="md:px-24">
         <div class="max-w-4xl border-l border-white/20 pl-12">
-            <h2 class="serif text-4xl mb-6 lang-pt italic font-light italic">"A arquitetura deve ser sentida, não apenas vista."</h2>
-            <h2 class="serif text-4xl mb-6 lang-en italic font-light italic">"Architecture should be felt, not just seen."</h2>
+            <h2 class="serif text-4xl mb-6 lang-pt italic font-light">"A arquitetura deve ser sentida, não apenas vista."</h2>
+            <h2 class="serif text-4xl mb-6 lang-en italic font-light">"Architecture should be felt, not just seen."</h2>
             <div class="lang-pt text-gray-400 text-lg font-light leading-relaxed">
                 Nossa metodologia foca na conexão humana e no uso de ferramentas 3D avançadas.
             </div>
@@ -168,7 +126,42 @@
         </div>
     </section>
 
-    <section id="contato" class="md:px-24 flex-col justify-center text-center bg-black/60">
+    <section id="portfolio" class="md:px-24 bg-black/60 py-24 flex-col justify-center text-center">
+        <div class="max-w-6xl mx-auto w-full">
+            <h2 class="serif text-5xl mb-16 lang-pt text-white">Portfólio</h2>
+            <h2 class="serif text-5xl mb-16 lang-en text-white">Portfolio</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="group">
+                    <div class="p-3 glass-card shadow-2xl transition-all duration-500 group-hover:border-white/40">
+                        <div class="overflow-hidden aspect-video bg-gray-900">
+                            <img src="PROJETO_1.jpg" alt="Projeto 01" 
+                                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 block scale-105 group-hover:scale-100">
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-between items-baseline px-2 text-left">
+                        <h3 class="serif text-xl text-gray-200 tracking-wider">Residência Vale do Sol</h3>
+                        <span class="text-[10px] tracking-widest uppercase text-gray-500">2023</span>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="p-3 glass-card shadow-2xl transition-all duration-500 group-hover:border-white/40">
+                        <div class="overflow-hidden aspect-video bg-gray-900">
+                            <img src="PROJETO_2.jpg" alt="Projeto 02" 
+                                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 block scale-105 group-hover:scale-100">
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-between items-baseline px-2 text-left">
+                        <h3 class="serif text-xl text-gray-200 tracking-wider">Apartamento Retrofit</h3>
+                        <span class="text-[10px] tracking-widest uppercase text-gray-500">2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="md:px-24 flex-col justify-center text-center">
         <h2 class="serif text-5xl mb-12 lang-pt">Vamos conversar?</h2>
         <h2 class="serif text-5xl mb-12 lang-en">Let's talk?</h2>
         <div class="mb-12">
@@ -208,4 +201,3 @@
     </script>
 </body>
 </html>
-
