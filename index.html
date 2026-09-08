@@ -45,15 +45,146 @@
             h1 { font-size: 3rem !important; }
         }
         .container-da-secao {
-    display: flex;
-    align-items: stretch; /* Isso obriga a foto e o texto a terem a mesma altura */
-}
+            display: flex;
+            align-items: stretch;
+        }
 
-.coluna-da-foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a foto preencha o espaço sem distorcer */
-}
+        .coluna-da-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Estilos do Chat Flutuante --- */
+        #chat-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            z-index: 9999;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        #chat-toggle-btn:hover {
+            background-color: #e2e8f0;
+            transform: scale(1.05);
+        }
+
+        #chat-widget {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 350px;
+            height: 480px;
+            background: #09090b;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            z-index: 9999;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .chat-hidden {
+            display: none !important;
+        }
+
+        .chat-header {
+            background-color: #18181b;
+            color: white;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #a1a1aa;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .close-btn:hover { color: #fff; }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #000000;
+        }
+
+        .msg-usuario {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 9px 14px;
+            border-radius: 8px 8px 0 8px;
+            align-self: flex-end;
+            max-width: 85%;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .msg-ia {
+            background-color: #27272a;
+            color: #f4f4f5;
+            padding: 9px 14px;
+            border-radius: 8px 8px 8px 0;
+            align-self: flex-start;
+            max-width: 85%;
+            font-size: 12px;
+            line-height: 1.4;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .chat-footer {
+            display: flex;
+            padding: 12px;
+            background: #18181b;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 9px 12px;
+            background: #09090b;
+            border: 1px solid #3f3f46;
+            color: white;
+            border-radius: 6px;
+            outline: none;
+            font-size: 12px;
+        }
+        .chat-footer input:focus { border-color: #a1a1aa; }
+
+        .chat-footer button {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0 14px;
+            margin-left: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .chat-footer button:hover { background-color: #e2e8f0; }
     </style>
 </head>
 <body>
@@ -145,6 +276,7 @@
             </div> </div>
     </div>
 </section>
+
     <section id="metodologia" class="py-20 md:px-24 bg-black/60">
     <div class="max-w-5xl border-l border-white/20 pl-8 md:pl-12">
         <h2 class="serif text-4xl md:text-5xl mb-12 lang-pt italic font-light leading-tight text-white">
@@ -302,6 +434,26 @@
         </a>
     </section>
 
+    <!-- --- Widget de Chat Flutuante Integrado --- -->
+    <button id="chat-toggle-btn" onclick="toggleChat()">💬 Assistente IA</button>
+
+    <div id="chat-widget" class="chat-hidden">
+        <div class="chat-header">
+            <span>Aline Castro | Assistant</span>
+            <button onclick="toggleChat()" class="close-btn">&times;</button>
+        </div>
+        
+        <div id="chat-messages" class="chat-messages">
+            <div class="msg-ia">Olá! Sou o assistente virtual da Aline Castro Arquitetura. Como posso ajudar com os projetos hoje?</div>
+        </div>
+        
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Digite sua dúvida..." onkeypress="verificarEnter(event)">
+            <button onclick="enviarMensagem()">Enviar</button>
+        </div>
+    </div>
+    <!-- ----------------------------------------- -->
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         // Inicializa os ícones
@@ -329,30 +481,63 @@
                 btnEn.classList.add('text-gray-500');
             }
         }
-    </script>
 
-    <script>
-        function setLang(lang) {
-            const pt = document.querySelectorAll('.lang-pt');
-            const en = document.querySelectorAll('.lang-en');
-            const btnPt = document.getElementById('btn-pt');
-            const btnEn = document.getElementById('btn-en');
+        // --- Funções do Chat e Segurança JWT ---
+        function toggleChat() {
+            const widget = document.getElementById('chat-widget');
+            widget.classList.toggle('chat-hidden');
+        }
 
-            if (lang === 'en') {
-                pt.forEach(el => el.style.display = 'none');
-                en.forEach(el => el.style.display = 'block');
-                btnEn.classList.add('text-white', 'border-b', 'border-white');
-                btnEn.classList.remove('text-gray-500');
-                btnPt.classList.remove('text-white', 'border-b', 'border-white');
-                btnPt.classList.add('text-gray-500');
-            } else {
-                en.forEach(el => el.style.display = 'none');
-                pt.forEach(el => el.style.display = 'block');
-                btnPt.classList.add('text-white', 'border-b', 'border-white');
-                btnPt.classList.remove('text-gray-500');
-                btnEn.classList.remove('text-white', 'border-b', 'border-white');
-                btnEn.classList.add('text-gray-500');
+        function verificarEnter(event) {
+            if (event.key === 'Enter') {
+                enviarMensagem();
             }
+        }
+
+        async function enviarMensagem() {
+            const input = document.getElementById('chat-input');
+            const mensagensContainer = document.getElementById('chat-messages');
+            const texto = input.value.trim();
+
+            if (!texto) return;
+
+            // Exibe a mensagem do usuário na tela
+            mensagensContainer.innerHTML += `<div class="msg-usuario">${texto}</div>`;
+            input.value = '';
+            mensagensContainer.scrollTop = mensagensContainer.scrollHeight;
+
+            // Recupera o Token JWT salvo no navegador (simulando usuário logado)
+            const token = localStorage.getItem('access_token');
+
+            if (!token) {
+                mensagensContainer.innerHTML += `<div class="msg-ia">Aviso: Nenhum token JWT encontrado no localStorage. Faça login para usar a API segura.</div>`;
+                mensagensContainer.scrollTop = mensagensContainer.scrollHeight;
+                return;
+            }
+
+            try {
+                // Requisição para o backend Flask protegido por JWT
+                const resposta = await fetch('http://localhost:5000/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ mensagem: texto })
+                });
+
+                const dados = await resposta.json();
+
+                if (resposta.ok) {
+                    mensagensContainer.innerHTML += `<div class="msg-ia">${dados.resposta}</div>`;
+                } else {
+                    mensagensContainer.innerHTML += `<div class="msg-ia">Erro: ${dados.erro || 'Não foi possível processar'}</div>`;
+                }
+            } catch (erro) {
+                mensagensContainer.innerHTML += `<div class="msg-ia">Erro de conexão com o servidor local (Flask).</div>`;
+            }
+
+            mensagensContainer.scrollTop = mensagensContainer.scrollHeight;
         }
     </script>
 </body>
